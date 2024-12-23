@@ -2,26 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:todoapp/mainscreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
   @override
   State<MyApp> createState() {
-    return _MyAppState();
+    return _MyApp();
   }
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyApp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(
-        useMaterial3: true,
-      ),
-      home: const MainScreen(),
+      home: MainScreen(),
     );
   }
 }

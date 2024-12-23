@@ -1,32 +1,43 @@
 import 'package:flutter/material.dart';
 
 class Addtodo extends StatefulWidget {
-  const Addtodo({super.key});
+  Addtodo({super.key, required this.addText});
+
+  final Function({required String changetext}) addText;
 
   @override
   State<Addtodo> createState() => _AddtodoState();
 }
 
 class _AddtodoState extends State<Addtodo> {
+  TextEditingController _controllerText = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             child: TextField(
-              decoration: InputDecoration(
+              autofocus: true,
+              controller: _controllerText,
+              decoration: const InputDecoration(
                 hintText: 'Add Todo',
                 labelText: 'Todo',
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          ElevatedButton(onPressed: () {}, child: Text("ADD")),
+          ElevatedButton(
+              onPressed: () {
+                if (_controllerText.text != "") {
+                  widget.addText(changetext: _controllerText.text);
+                }
+              },
+              child: const Text("ADD")),
         ],
       ),
     );
