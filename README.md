@@ -29,7 +29,7 @@ A simple, elegant, and lightweight To-Do application built with Flutter. This ap
    flutter pub get
 3.Run the app:
   ```
- flutter run
+   flutter run
 
 
 
