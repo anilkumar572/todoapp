@@ -20,6 +20,11 @@ class _AddtodoState extends State<Addtodo> {
           SizedBox(
             width: double.infinity,
             child: TextField(
+              onSubmitted: (value) {
+                if (_controllerText.text.isNotEmpty) {
+                  widget.addText(changetext: _controllerText.text);
+                }
+              },
               autofocus: true,
               controller: _controllerText,
               decoration: const InputDecoration(
@@ -33,7 +38,7 @@ class _AddtodoState extends State<Addtodo> {
           ),
           ElevatedButton(
               onPressed: () {
-                if (_controllerText.text != "") {
+                if (_controllerText.text.isNotEmpty) {
                   widget.addText(changetext: _controllerText.text);
                 }
               },
